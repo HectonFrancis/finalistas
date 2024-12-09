@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalistas em Geografia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        .table-container {
+            margin: 20px auto;
+            max-width: 800px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .filter {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .filter input {
+            padding: 8px;
+            width: 50%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Finalistas em Geografia</h1>
+    <div class="filter">
+        <input type="text" id="search" placeholder="Filtrar por nome ou turma..." onkeyup="filterTable()">
+    </div>
+    <div class="table-container">
+        <table id="finalistas">
+            <thead>
+                <tr>
+                    <th>Turma</th>
+                    <th>Nome do Aluno</th>
+                    <th>Pontos Obtidos</th>
+                    <th>Pontos Necessários na Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2ºA</td>
+                    <td>Danilo de Miranda Barbosa</td>
+                    <td>23.2</td>
+                    <td>3.8</td>
+                </tr>
+                <tr>
+                    <td>2ºA</td>
+                    <td>Felipe Venâncio Marinho</td>
+                    <td>27.5</td>
+                    <td>2.2</td>
+                </tr>
+                <tr>
+                    <td>2ºA</td>
+                    <td>José Alyson Silva Medeiros</td>
+                    <td>25.6</td>
+                    <td>2.9</td>
+                </tr>
+                <tr>
+                    <td>2ºA</td>
+                    <td>Luis Gabriel Costa França</td>
+                    <td>25.9</td>
+                    <td>2.8</td>
+                </tr>
+                <tr>
+                    <td>2ºB</td>
+                    <td>Carlos César Barreto Filho</td>
+                    <td>25.3</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>2ºB</td>
+                    <td>Kayo Danilo Barbosa da Silva</td>
+                    <td>24.3</td>
+                    <td>3.4</td>
+                </tr>
+                <tr>
+                    <td>3ºA</td>
+                    <td>Alessandra Pereira da Silva</td>
+                    <td>14.3</td>
+                    <td>7.2</td>
+                </tr>
+                <tr>
+                    <td>3ºA</td>
+                    <td>Daniel Bezerra da Silva</td>
+                    <td>24.1</td>
+                    <td>3.5</td>
+                </tr>
+                <tr>
+                    <td>3ºA</td>
+                    <td>Everton Medeiros do Nascimento</td>
+                    <td>24.9</td>
+                    <td>3.2</td>
+                </tr>
+                <tr>
+                    <td>3ºA</td>
+                    <td>João Pedro Tavares</td>
+                    <td>25.5</td>
+                    <td>2.9</td>
+                </tr>
+                <tr>
+                    <td>3ºB</td>
+                    <td>Alvani Alves Brito</td>
+                    <td>16.2</td>
+                    <td>6.4</td>
+                </tr>
+                <tr>
+                    <td>3ºB</td>
+                    <td>Emerson da França Barreto</td>
+                    <td>22.4</td>
+                    <td>4.1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function filterTable() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('finalistas');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let match = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().includes(filter)) {
+                        match = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = match ? '' : 'none';
+            }
+        }
+    </script>
+</body>
+</html>
